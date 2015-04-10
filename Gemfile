@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
-
-
+gem 'mysql'
+gem 'rails_layout'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'responders', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2', '0.2.22'
+# gem 'mysql2', '0.2.22'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

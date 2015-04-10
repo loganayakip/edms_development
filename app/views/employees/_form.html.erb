@@ -1,0 +1,76 @@
+<body style="background-color:bisque">
+</body><center><h3>
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div><br>
+
+ <div class="field">
+  <%= f.label :date_of_joining %>
+  <%= f.text_field :date_of_joining, id: 'datepicker', :value => show_date(!@employee.date_of_joining.nil? ? @employee.date_of_joining : Date.today) %>
+</div><br>
+
+  <div class="field">
+    <%= f.label :markuci_email %>
+    <%= f.text_field :markuci_email %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :coupa_email %>
+    <%= f.text_field :coupa_email %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :skype_id %>
+    <%= f.text_field :skype_id %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :contact_no %>
+    <%= f.text_field :contact_no %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :designation %>
+    <%= f.select :designation, options_for_select(%w[CEO VicePresident HR ProjectManager TeamLead SeniorTestEngineer JuniorTestEngineer Trainee]) %>
+  </div><br>
+
+  <div class="field">
+    <%= f.label :employee_status %>
+    <%= f.select :employee_status, options_for_select(%w[Permanent Training probation ]) %>
+  </div><br>
+  <% if params[:action] == "edit" %>
+    <div class="field">
+      <%= f.label :status %>
+      <%= f.check_box :status %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %></h3>
+</center>
